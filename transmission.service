@@ -11,14 +11,14 @@ ExecStartPre=-/bin/sh -c "mkdir -p /media/Seagate\ Expansion\ Dr/watch /media/Se
 ExecStart=/storage/.kodi/addons/service.system.docker/bin/docker run \
           --rm \
           --name=%p \
-          --hostname=libreelec-%p \
-          --volume=/media/Seagate\ Expansion\ Dr/watch:/watch \
-          --volume=/media/Seagate\ Expansion\ Dr/torrent:/downloads \
-          --volume=/media/Seagate\ Expansion\ Dr/incomplete:/incomplete \
-          --volume=/storage/%p/config:/config \
-          --publish=9091:9091 \
-          --publish=45555:45555 \
-          libreelec/%p
+          -h=libreelec-%p \
+          -v=/media/Seagate\ Expansion\ Dr/watch:/watch \
+          -v=/media/Seagate\ Expansion\ Dr/torrent:/downloads \
+          -v=/media/Seagate\ Expansion\ Dr/incomplete:/incomplete \
+          -v=/storage/%p/config:/config \
+          -p=9091:9091 \
+          -p=45555:45555 \
+          libreelecarm/%p
 ExecStop=/storage/.kodi/addons/service.system.docker/bin/docker stop %p
 
 [Install]
