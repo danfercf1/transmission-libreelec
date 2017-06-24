@@ -1,0 +1,25 @@
+[Unit]
+Description=%p container
+Requires=service.system.docker.service
+After=service.system.docker.service
+
+[Service]
+Restart=always
+RestartSec=10s
+TimeoutStartSec=0
+ExecStartPre=-/bin/sh -c "mkdir -p /media/Seagate\ Expansion\ Dr/watch /media/Seagate\ Expansion\ Dr/torrent /media/Seagate\ Expansion\ Dr/incomplete /storage/%p/config"
+ExecStart=/storage/.kodi/addons/service.system.docker/bin/docker run \
+          --rm \
+          --name=%p \
+          --hostname=libreelec-%p \
+          --volume=/media/Seagate\ Expansion\ Dr/watch:/watch \
+          --volume=/media/Seagate\ Expansion\ Dr/torrent:/downloads \
+          --volume=/media/Seagate\ Expansion\ Dr/incomplete:/incomplete \
+          --volume=/storage/%p/config:/config \
+          --publish=9091:9091 \
+          --publish=45555:45555 \
+          libreelec/%p
+ExecStop=/storage/.kodi/addons/service.system.docker/bin/docker stop %p
+
+[Install]
+WantedBy=multi-user.target
