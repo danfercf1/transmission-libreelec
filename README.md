@@ -1,14 +1,14 @@
 # Libreelec, Transmission service with docker image 
-##Using external drive (NTFS)
+## Using external drive (NTFS)
 Create symlinks between external drive and volumes mounted on docker configuration:
 *   `ln -s /var/media/external-drive/downloads /storage/downloads`
 *   `ln -s /var/media/external-drive/incomplete /storage/incomplete`
 *   `ln -s /var/media/external-drive/watch /storage/watch`
 
-##Prerequisites:
+## Prerequisites:
 *   Docker addon installed from libreelec repositories.
 
-##Installation
+## Installation
 
 *   Download the project `wget https://github.com/danfercf1/all-in-one/archive/master.zip`
 *   Unzip the file: `unzip master.zip`
@@ -16,7 +16,7 @@ Create symlinks between external drive and volumes mounted on docker configurati
 *   Run the script: `./install.sh`
 *   Check if the container is up: `/storage/.kodi/addons/service.system.docker/bin/docker ps`
 
-##Basic configuration:
+## Basic configuration:
 *   Stop the service
 *   Update the file on /storage/transmission/config/settings.json
 *   Start the service
