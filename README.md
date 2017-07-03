@@ -10,7 +10,7 @@ Create symlinks between external drive and volumes mounted on docker configurati
 
 ## Installation
 
-*   Download the project `wget https://github.com/danfercf1/all-in-one/archive/master.zip`
+*   Download the project `wget https://github.com/danfercf1/transmission-libreelec/archive/master.zip`
 *   Unzip the file: `unzip master.zip`
 *   Enter the folder: `cd transmission-libreelec-master`
 *   Run the script: `./install.sh`
